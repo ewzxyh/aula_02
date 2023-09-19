@@ -5,6 +5,6 @@
     text-decoration: none;
     transition: 1.2s;
 }
-.btn :hover {
+.btn:hover {
     color: rgba(224, 77, 28, 0.733);
 }
