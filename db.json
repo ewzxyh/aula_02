@@ -1,0 +1,21 @@
+{
+    "restaurante":[],
+    "tipos": [
+        {
+            "id": 1,
+            "name": "Pizzas"
+        },
+        {
+            "id": 2,
+            "name": "Bebidas"
+        },
+        {
+            "id": 3,
+            "name": "Massas"
+        },
+        {
+            "id": 4,
+            "name": "Sanduíches"
+        }
+    ]
+}
