@@ -15,7 +15,11 @@
         },
         {
             "id": 4,
-            "name": "Sanduíches"
+            "name": "Sanduiches"
+        },
+        {
+            "id": 5,
+            "name": "Saladas"
         }
     ]
 }
