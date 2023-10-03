@@ -4,6 +4,7 @@ import Container from "./components/layout/Container";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Home from "./components/pages/Home";
+import Geral from "./components/pages/Geral";
 interface LayoutProps {
   children: JSX.Element;
 }
@@ -24,6 +25,12 @@ function App() {
         <Route path="/" element = {
           <Layout>
             <Home />
+          </Layout>
+        }
+        />
+        <Route path="/itens" element = {
+          <Layout>
+            <Geral />
           </Layout>
         }
         />
