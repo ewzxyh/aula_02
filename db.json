@@ -1,25 +1,59 @@
 {
-    "restaurante":[],
-    "tipos": [
-        {
-            "id": 1,
-            "name": "Pizzas"
-        },
-        {
-            "id": 2,
-            "name": "Bebidas"
-        },
-        {
-            "id": 3,
-            "name": "Massas"
-        },
-        {
-            "id": 4,
-            "name": "Sanduiches"
-        },
-        {
-            "id": 5,
-            "name": "Saladas"
-        }
-    ]
+  "restaurante": [
+    {
+      "name": "Pizza Napolitana",
+      "price": "55.90",
+      "tipos": {
+        "id": "1",
+        "name": "Pizzas"
+      },
+      "total": 0,
+      "valores": [],
+      "id": 1
+    },
+    {
+      "tipos": {
+        "id": "3",
+        "name": "Massas"
+      },
+      "name": "Lasanha 4 Queijos",
+      "price": "25.99",
+      "total": 0,
+      "valores": [],
+      "id": 3
+    },
+    {
+      "name": "Coca-Cola 2 litros",
+      "price": "10",
+      "tipos": {
+        "id": "2",
+        "name": "Bebidas"
+      },
+      "total": 0,
+      "valores": [],
+      "id": 4
+    }
+  ],
+  "tipos": [
+    {
+      "id": 1,
+      "name": "Pizzas"
+    },
+    {
+      "id": 2,
+      "name": "Bebidas"
+    },
+    {
+      "id": 3,
+      "name": "Massas"
+    },
+    {
+      "id": 4,
+      "name": "Sanduiches"
+    },
+    {
+      "id": 5,
+      "name": "Saladas"
+    }
+  ]
 }

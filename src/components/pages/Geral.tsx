@@ -51,13 +51,14 @@ function Geral () {
 
     function removeRestaurante(id:number) {
         setMsg("");
-        fetch("http://localhost:8080/restaurante/${id}",{
+        fetch(`http://localhost:8080/restaurante/${id}`,{
             method: "DELETE",
             headers:{
                 "Content-Type":"application/json"
             }
-        }).then((r)=>r.json())
-        .then(()=>{
+        })
+        .then((r)=>r.json())
+        .then( () => {
             setRestaurante(restaurante.filter(
                 (res:TipoType) => res.id !== id
             ));
@@ -67,11 +68,11 @@ function Geral () {
 
     return (
         <div className={styles.geral_container}>
+            {mensagem && <Mensagem msg={mensagem} type="sucesso" />}
+            {msg && <Mensagem msg={msg} type="sucesso" />}
             <div className={styles.title_container} >
                 <h1>Restaurante</h1>
                 <LinkButton to="/novo" text="Novo Item" />
-                {mensagem && <Mensagem msg={mensagem} type="sucesso" />}
-                {msg && <Mensagem msg={msg} type="sucesso" />}
             </div>
             <Container customClass="start">
                 { restaurante.length > 0 && 

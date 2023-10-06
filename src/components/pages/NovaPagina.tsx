@@ -38,9 +38,9 @@ function NovaPagina () {
         .then((resp) =>resp.json())
         .then((data) => {
             console.log (data);
-            history("/restaurante", {
+            history("/itens", {
                 state: {
-                    message:"Item criado com sucesso!"
+                    mensagem:"Item criado com sucesso!"
                 }
             });
         })
