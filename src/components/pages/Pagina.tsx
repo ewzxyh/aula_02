@@ -5,6 +5,8 @@ import {v4 as uuidv4} from "uuid";
 import Mensagem from "../layout/Mensagem";
 import Container from "../layout/Container";
 import ItemForm from "../itens/ItemForm";
+import IngredientesForm from "../itens/IngredientesForm";
+import ValorCard from "../itens/ValorCard";
 
 interface TipoType{
     id: number;
@@ -28,13 +30,14 @@ interface RestauranteData {
 }
 
 function Pagina (){
-    const {id} = useParams
+    const {id} = useParams();
     const [restaurante, setRestaurante] = useState<RestauranteData>();
     const [showItemForm, setShowItemForm] = useState(false);
     const [showServiceForm, setShowServiceForm] = useState(false);
     const [mensagem, setMensagem] = useState("");
     const [type, setType] = useState("");
     const [valores, setValores] = useState<ValorType[]>([]);
+    
     useEffect ( () =>{
         fetch(`http://localhost:8080/restaurante/${id}`,{
             method:"GET",
@@ -49,6 +52,7 @@ function Pagina (){
         })
         .catch((e)=>console.log(e));
     },[id]);
+
     function editPost(res:RestauranteData) {
         setMensagem("");
         if(res.price < res.total){
@@ -57,7 +61,7 @@ function Pagina (){
             return false;
         }
 
-        fetch (`http://localhost:5173/restaurante/${res.id}`,{
+        fetch (`http://localhost:8080/restaurante/${res.id}`,{
             method:"PATCH",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(res)
@@ -84,7 +88,7 @@ function Pagina (){
             restaurante.valores.pop();
             return false;
         }
-        fetch (`http://localhost:5173/restaurante/${restaurante.id}`,{
+        fetch (`http://localhost:8080/restaurante/${restaurante.id}`,{
             method:"PATCH",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(restaurante)
@@ -107,7 +111,7 @@ function Pagina (){
         atualizaRestaurante.valores = atualizaCusto;
         atualizaRestaurante.total = 
             Number(atualizaRestaurante?.total) - Number(total);
-        fetch (`http://localhost:5173/restaurante/${restaurante.id}`,{
+        fetch (`http://localhost:8080/restaurante/${restaurante.id}`,{
             method:"PATCH",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(atualizaRestaurante)
@@ -168,10 +172,47 @@ function Pagina (){
                                 </div>
                             )}
                         </div>
-                        
+                        <div className={styles.form_container}>
+                            <h2>Adicionar Custo:</h2>
+                            <button className={styles.btn} onClick={toggleServiceForm}>
+                                {!showServiceForm ? "Adicionar Custos" : "Fechar"}
+                            </button>
+                            <div className={styles.pagina_info}>
+                                {showServiceForm && (
+                                    <div>
+                                        <IngredientesForm 
+                                            handleSubmit={createIngrediente}
+                                            btnText="Adicionar Custo"
+                                            itemData={restaurante} />
+
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                        <h2>Custos</h2>
+                        <Container customClass="start">
+                            {valores.length > 0 &&
+                            valores.map((valor: ValorType) =>(
+                                <ValorCard
+                                    id={valor.id}
+                                    name={valor.name}
+                                    custo={valor.custo}
+                                    key={valor.id}
+                                    handleRemove={removerCusto}
+                                    />
+                            ))
+                            }
+                        {valores.length === 0 && <p>Não há valores cadastrados!</p>}
+                        </Container>
                     </Container>
+                </div>
+            ):(
+                <div className={styles.pagina_details}>
+                    <h1>Nada por aqui ainda!</h1>
                 </div>
             )}
         </>
-    )
+    );
 }
+
+export default Pagina;

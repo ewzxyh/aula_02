@@ -1,0 +1,38 @@
+.pagina_details{
+    padding: 1.8em;
+}
+
+.pagina_details h1,
+.pagina_details h2,
+.pagina_details p {
+    margin-bottom: 0.5;
+}
+.details_container h1{
+    color: #222;
+    padding: 0.2em 0;
+}
+.form_container,
+.details_container{
+    border-bottom: 1px solid #8d8d8d;
+    margin-bottom: 1.2em;
+    padding-bottom: 1.2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.btn{
+    background-color: #222;
+    color: #f0f8ff;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    transition: 0.8s;
+    cursor: pointer;
+    max-height: 40px;
+    border: none;
+}
+.btn:hover{
+    color: #700e68bb;
+}
+.pagina_info{
+    width: 100%;
+}

@@ -6,6 +6,7 @@ import Footer from "./components/layout/Footer";
 import Home from "./components/pages/Home";
 import Geral from "./components/pages/Geral";
 import NovaPagina from "./components/pages/NovaPagina";
+import Pagina from "./components/pages/Pagina";
 interface LayoutProps {
   children: JSX.Element;
 }
@@ -38,6 +39,13 @@ function App() {
         <Route path="/novo" element = {
           <Layout>
             <NovaPagina />
+          </Layout>
+        }
+        />
+        <Route path="/restaurante/:id" 
+        element = {
+          <Layout>
+            <Pagina />
           </Layout>
         }
         />

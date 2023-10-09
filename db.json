@@ -32,6 +32,24 @@
       "total": 0,
       "valores": [],
       "id": 4
+    },
+    {
+      "name": "X-Salada Especial",
+      "price": "21",
+      "tipos": {
+        "id": "4",
+        "name": "Sanduiches"
+      },
+      "total": -1,
+      "valores": [
+        {
+          "name": "Ovo",
+          "custo": "2",
+          "descricao": "Ovo de galinha",
+          "id": "ee7301c0-6275-4c48-be85-8abe2aed59b2"
+        }
+      ],
+      "id": 5
     }
   ],
   "tipos": [
